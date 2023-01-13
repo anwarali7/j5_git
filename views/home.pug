@@ -1,0 +1,25 @@
+extends layouts/frontend
+
+block content
+    .ui.middle.aligned.center.aligned.grid
+        .six.wide.column
+            form.ui.large.form(method="post", action="/", class=errorHeader?"error":"")
+                .ui.error.message
+                    .header #{errorHeader}
+                    p &bull; #{errorMessage}
+                .ui.stacked.segment
+                    +field('text', 'firstName', 'First name', firstName)
+                    +field('text', 'lastName', 'Last name', lastName)
+                    +field('email', 'email', 'your.email@address.tld', email)
+                    +field('password', 'password', 'Password')
+                    +field('password', 'password_confirm', 'Confirm password')
+                    button(type="submit").ui.fluid.large.teal.submit.button Sign Up
+
+                
+
+
+mixin field(type, name, placeholder, value)
+    .field
+        .ui.left.icon.input
+            i.icon(class=(type === 'password' ? 'lock' : 'user'))
+            input(type=type, name=name, placeholder=placeholder, value=value)

@@ -1,0 +1,7 @@
+html {
+    font-family: sans-serif;
+}
+
+.ui.error.message {
+    text-align: left;
+}
